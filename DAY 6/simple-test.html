@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React App Test</title>
+    <style>
+        .h2 {
+            background-color: rgb(81, 167, 177);
+            color: black;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        nav {
+            background-color: #333;
+            padding: 1rem;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav li {
+            color: white;
+            cursor: pointer;
+        }
+        
+        nav li:hover {
+            color: #ccc;
+        }
+        
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <script type="text/babel">
+        // Navbar Component
+        function Navbar() {
+            return (
+                <>
+                    <nav>
+                        <ul>
+                            <li>Home</li>
+                            <li>About</li>
+                            <li>Contact</li>
+                        </ul>
+                    </nav>
+                    <p>The above content is Navbar</p>
+                </>
+            );
+        }
+        
+        // ClassComponent
+        class ClassComponent extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <h1>This is a Class Component</h1>
+                    </div>
+                );
+            }
+        }
+        
+        // App Component
+        function App() {
+            const h1Style = {
+                backgroundColor: "violet",
+                color: "white",
+                textAlign: "center"
+            };
+            
+            return (
+                <header>
+                    <Navbar />
+                    <div>
+                        <h1 style={h1Style}>Welcome to Derry</h1>
+                        <h2 className="h2">This is simple react</h2>
+                        <ClassComponent />
+                        <img 
+                            src="https://vitejs.dev/logo.svg" 
+                            alt="Vite Logo" 
+                            style={{marginLeft: "800px", height: "200px"}} 
+                        />
+                    </div>
+                </header>
+            );
+        }
+        
+        // Render the App
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
